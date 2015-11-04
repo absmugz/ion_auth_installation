@@ -7,7 +7,6 @@ class MY_Controller extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->library('ion_auth');
         $this->data['page_title'] = 'CI App';
         $this->data['page_description'] = 'CI_App';
         $this->data['before_closing_head'] = '';
@@ -36,10 +35,12 @@ class MY_Controller extends CI_Controller {
 class Auth_Controller extends MY_Controller {
     function __construct() {
         parent::__construct();
+        $this->load->library('ion_auth');
         if($this->ion_auth->logged_in()===FALSE)
         {
             redirect('user/login');
         }
+        $this->ion_auth->user()->row();
     }
     protected function render($the_view = NULL, $template = 'auth_master')
     {
@@ -48,25 +49,19 @@ class Auth_Controller extends MY_Controller {
     
     }
     
-class Members_Controller extends MY_Controller {
+class Members_Controller extends Auth_Controller {
     function __construct() {
         parent::__construct();
         //if($this->ion_auth->logged_in()===FALSE)
         $group = 'members';
-		if ($this->ion_auth->in_group($group)===FALSE)
+	if ($this->ion_auth->in_group($group)===FALSE)
         {
             
             
             redirect('home');
-        } else {
-        //Store user in $data
-            //$this->ion_auth->user()
-        //var_dump($this->ion_auth->user()->row()); 
-       $this->ion_auth->user()->row();
-       
-   }
+        }
     }
     
     
-    }
+ }
 
