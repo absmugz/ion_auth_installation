@@ -8,6 +8,7 @@ class MY_Controller extends CI_Controller {
     {
         parent::__construct();
         $this->data['page_title'] = 'CI App';
+        $this->load->library('ion_auth');
         $this->data['page_description'] = 'CI_App';
         $this->data['before_closing_head'] = '';
         $this->data['before_closing_body'] = '';
@@ -49,7 +50,7 @@ class Auth_Controller extends MY_Controller {
     
     }
     
-class Members_Controller extends Auth_Controller {
+class Members_Controller extends MY_Controller {
     function __construct() {
         parent::__construct();
         //if($this->ion_auth->logged_in()===FALSE)
