@@ -51,10 +51,18 @@ class Auth_Controller extends MY_Controller {
 class Members_Controller extends MY_Controller {
     function __construct() {
         parent::__construct();
-        if($this->ion_auth->logged_in()===FALSE)
+        //if($this->ion_auth->logged_in()===FALSE)
+        $group = 'members';
+		if ($this->ion_auth->in_group($group)===FALSE)
         {
+            
+            
             redirect('home');
-        }
+        } else {
+        //Store user in $data
+            //$this->ion_auth->user()
+        var_dump($this->ion_auth->user()->row());   
+   }
     }
     
     

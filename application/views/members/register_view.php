@@ -7,7 +7,7 @@
     ?>
     <h1>Register</h1>
     <?php
-    echo form_open();
+    echo form_open(base_url()."/home/register");
     echo form_label('First name:','first_name').'<br />';
     echo form_error('first_name');
     echo form_input('first_name',set_value('first_name')).'<br />';

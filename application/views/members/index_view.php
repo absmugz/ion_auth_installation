@@ -1,13 +1,11 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-  echo anchor('members/login', 'login');
- echo anchor('members/register', 'register');
 
 
+ <a href="<?=base_url();?>members">members</a>
+<?php if ($loggedin): ?>
+    <p>Logged in</p>
 
+<?php else: ?>
+    <p>Please log in</p>
+    <a href="<?=base_url();?>home/login">Login</a>
+     <a href="<?=base_url();?>home/register">Register</a> 
+<?php endif; ?>
