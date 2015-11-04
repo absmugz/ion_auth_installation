@@ -45,4 +45,18 @@ class Auth_Controller extends MY_Controller {
     {
         parent::render($the_view, $template);
     }
-}
+    
+    }
+    
+class Members_Controller extends MY_Controller {
+    function __construct() {
+        parent::__construct();
+        if($this->ion_auth->logged_in()===FALSE)
+        {
+            redirect('home');
+        }
+    }
+    
+    
+    }
+
