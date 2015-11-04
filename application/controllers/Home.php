@@ -17,7 +17,7 @@ if ($this->ion_auth->logged_in()) {
     } else {
       $loggedin = false;
     }
-    
+    $data['user'] = $this->ion_auth->user()->row();
      $data['loggedin'] = $loggedin;
      $this->load->view('members/index_view', $data);
     }
@@ -94,6 +94,12 @@ if ($this->ion_auth->logged_in()) {
             }
         }
     }
+    
+    public function logout()
+{
+	$this->ion_auth->logout();
+	redirect('home');
+}
 
 
     

@@ -11,7 +11,10 @@ function __construct()
 
     public function index()
     {
-        $this->load->view('welcome_message');
+        
+       $data['user'] = $this->ion_auth->user()->row();
+       //var_dump($data);
+        $this->load->view('members/members_view', $data);
     }
 
 

@@ -61,7 +61,9 @@ class Members_Controller extends MY_Controller {
         } else {
         //Store user in $data
             //$this->ion_auth->user()
-        var_dump($this->ion_auth->user()->row());   
+        //var_dump($this->ion_auth->user()->row()); 
+       $this->ion_auth->user()->row();
+       
    }
     }
     

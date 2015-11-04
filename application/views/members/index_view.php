@@ -2,7 +2,8 @@
 
  <a href="<?=base_url();?>members">members</a>
 <?php if ($loggedin): ?>
-    <p>Logged in</p>
+<?php echo 'Hi ' . $user->first_name; ?>
+<a href="<?=base_url();?>home/logout">Logout</a>
 
 <?php else: ?>
     <p>Please log in</p>
